@@ -1,0 +1,479 @@
+// ===================================== IMPORT =======================================
+
+@import "nullstyle.scss";
+
+// ===================================== FONTS =========================================
+
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Roboto:wght@400;500;600;700;800&display=swap");
+
+// ===================================== VAR =============================================
+
+$white: #ffff;
+
+// ===================================== MIXIN ===========================================
+
+@mixin deafultText {
+  color: $white;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+
+@mixin playerIcon {
+  width: 40px;
+  height: 40px;
+  border: 4px solid $white;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+label {
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  background: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  margin-right: 20px;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 90px;
+    transition: 0.3s;
+  }
+}
+
+input:checked + label {
+  background: #bada55;
+}
+
+input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+label:active:after {
+  width: 40px;
+}
+
+._container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+// ===================================== MAIN ============================================
+
+body {
+  overflow-x: hidden;
+  @include deafultText;
+  min-width: 480px;
+  min-height: 100vh;
+  font-size: 16px;
+  background-blend-mode: multiply;
+  transition: background-image 1s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+// ===================================== HEADER ===========================================
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.audio {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: rgba(190, 150, 150, 0.18);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.2px);
+    -webkit-backdrop-filter: blur(8.2px);
+    border: 1px solid rgba(190, 150, 150, 0.1);
+    margin-bottom: 20px;
+    padding: 0px 10px;
+  }
+
+  &__name {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 15px;
+    color: #bdecaa;
+  }
+
+  &__currentTime {
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    &:after {
+      content: "/";
+      position: relative;
+      left: 5px;
+    }
+  }
+
+  &__durationTime {
+    color: #bdecaa;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  &__range {
+    margin-right: 20px;
+    appearance: none;
+    height: 8px;
+    border-radius: 30px;
+    background-color: #c8f5e493;
+    &::-webkit-slider-thumb {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #81f1b0f3;
+      -webkit-appearance: none;
+    }
+    &::-webkit-slider-runnable-track {
+      -webkit-appearance: none;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+  }
+
+  &__volume-container {
+    position: relative;
+    cursor: pointer;
+    z-index: 2;
+    &:hover {
+      .audio__volume-slider {
+        left: -123px;
+        width: 120px;
+      }
+    }
+  }
+
+  &__volume-icon {
+    width: 25px;
+    height: 25px;
+    background: url("../assets/svg/volume-max-svgrepo-com.svg") no-repeat;
+  }
+
+  &__volume-slider {
+    position: absolute;
+    left: -3px;
+    top: 5px;
+    z-index: -1;
+    width: 0;
+    height: 15px;
+    background: white;
+    box-shadow: 0 0 20px #000a;
+    transition: 0.25s;
+  }
+
+  &__percentage {
+    background-color: #bdecaa;
+    height: 100%;
+    width: 75%;
+  }
+
+  &__player {
+    display: flex;
+    align-items: center;
+    gap: 0px 10px;
+    margin-bottom: 20px;
+  }
+
+  &__track {
+    font-size: 23px;
+    padding-left: 25px;
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__prev {
+    @include playerIcon;
+    background: url("/assets/svg/double-left-sign-circle-svgrepo-com.svg") center no-repeat;
+    opacity: 0.8;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__play {
+    @include playerIcon;
+    height: 50px;
+    width: 50px;
+    background: url("/assets/svg/play-circle-svgrepo-com.svg") center no-repeat;
+    opacity: 0.8;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__next {
+    @include playerIcon;
+    background: url("/assets/svg/double-right-sign-circle-svgrepo-com.svg") center no-repeat;
+    opacity: 0.8;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__track-list {
+    max-height: 160px;
+    overflow-y: auto;
+  }
+}
+.weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-start;
+  min-height: 180px;
+  &__icon {
+  }
+  .owf {
+    font-size: 44px;
+  }
+  &__city {
+    width: 170px;
+    height: 34px;
+    padding: 5px;
+    font-size: 20px;
+    line-height: 24px;
+    color: #fff;
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #fff;
+    background-color: transparent;
+    &::placeholder {
+      font-size: 20px;
+      color: #fff;
+      opacity: 0.6;
+    }
+  }
+  &__temp {
+    padding-right: 5px;
+  }
+  &__description {
+  }
+}
+
+// =========================================== MAIN ===========================================================
+
+.main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+  min-height: 260px;
+  padding: 20px;
+  flex: 1 0 auto;
+}
+.slider-arrows {
+  display: flex;
+}
+.slider-arrow {
+  &__prev {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    background: url("/assets/svg/arrow-prev-svgrepo-com.svg") center no-repeat;
+    width: 50px;
+    height: 50px;
+    left: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__next {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    background: url("/assets/svg/arrow-next-svgrepo-com.svg") center no-repeat;
+    width: 50px;
+    height: 50px;
+    right: 20px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.time {
+  margin-bottom: 20px;
+  font-size: 100px;
+  font-weight: 600;
+}
+.date {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.greetings {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 40px;
+  }
+
+  &__text {
+    flex: 1;
+    text-align: right;
+  }
+}
+.name {
+  flex: 1;
+  max-width: 50%;
+  padding: 10px;
+  font-size: 40px;
+  text-align: left;
+  color: #fff;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  &::placeholder {
+    color: #fff;
+    opacity: 0.6;
+  }
+}
+
+// =============================================== FOOTER =========================================================
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  min-height: 160px;
+  padding: 20px;
+  &__reset {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    background-image: url("/assets/svg/reset-reload-refresh-sync-arrow-update-svgrepo-com.svg");
+    margin-bottom: 25px;
+    opacity: 0.7;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__quotes {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  &__settings {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    transition: all 0.3s ease 0s;
+    transform: translateX(100%);
+  }
+
+  &__icon {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+    width: 30px;
+    height: 30px;
+    background: url("../assets/svg/settings-svgrepo-com.svg") no-repeat;
+    cursor: pointer;
+  }
+}
+
+.quotes {
+  &__quote {
+    margin-bottom: 20px;
+  }
+
+  &__author {
+  }
+}
+
+.pause {
+  background: url("/assets/svg/pause-svgrepo-com.svg") center no-repeat;
+}
+
+.settings {
+  &__wrapper {
+    min-width: 0px;
+    min-height: 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px;
+    transition: all 0.3s ease 0s;
+    box-shadow: -5px 5px 5px #00000060;
+  }
+
+  &__text {
+    color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  &__language {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__lang {
+    margin-right: 20px;
+    background-color: transparent;
+    font-size: 20px;
+    align-self: center;
+    width: 50px;
+    height: 50px;
+    text-transform: uppercase;
+    border-radius: 50%;
+  }
+}
+
+._open {
+  min-width: 400px;
+  min-height: 400px;
+  overflow-y: auto;
+  transition: all 0.3s ease 0s;
+  transform: translateX(0);
+}
+
+._active {
+  background-image: url("../assets/svg/close-bold-svgrepo-com.svg");
+  position: absolute;
+  z-index: 14;
+}
