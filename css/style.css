@@ -286,7 +286,7 @@ body {
   border: 4px solid white;
   border-radius: 50%;
   background-color: transparent;
-  background: url("/assets/svg/double-left-sign-circle-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/double-left-sign-circle-svgrepo-com.svg") center no-repeat;
   opacity: 0.8;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
@@ -302,7 +302,7 @@ body {
   background-color: transparent;
   height: 50px;
   width: 50px;
-  background: url("/assets/svg/play-circle-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/play-circle-svgrepo-com.svg") center no-repeat;
   opacity: 0.8;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
@@ -316,7 +316,7 @@ body {
   border: 4px solid white;
   border-radius: 50%;
   background-color: transparent;
-  background: url("/assets/svg/double-right-sign-circle-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/double-right-sign-circle-svgrepo-com.svg") center no-repeat;
   opacity: 0.8;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
@@ -421,7 +421,7 @@ body {
   position: absolute;
   left: 20px;
   top: 50%;
-  background: url("/assets/svg/arrow-prev-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/arrow-prev-svgrepo-com.svg") center no-repeat;
   width: 50px;
   height: 50px;
   left: 20px;
@@ -437,7 +437,7 @@ body {
   position: absolute;
   right: 20px;
   top: 50%;
-  background: url("/assets/svg/arrow-next-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/arrow-next-svgrepo-com.svg") center no-repeat;
   width: 50px;
   height: 50px;
   right: 20px;
@@ -537,7 +537,7 @@ body {
   width: 40px;
   height: 40px;
   background-color: transparent;
-  background-image: url("/assets/svg/reset-reload-refresh-sync-arrow-update-svgrepo-com.svg");
+  background-image: url("../assets/svg/reset-reload-refresh-sync-arrow-update-svgrepo-com.svg");
   margin-bottom: 25px;
   opacity: 0.7;
   -webkit-transition: all 0.3s ease 0s;
@@ -574,7 +574,7 @@ body {
   margin-bottom: 20px;
 }
 .pause {
-  background: url("/assets/svg/pause-svgrepo-com.svg") center no-repeat;
+  background: url("../assets/svg/pause-svgrepo-com.svg") center no-repeat;
 }
 
 .settings__wrapper {
