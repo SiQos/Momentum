@@ -211,7 +211,7 @@ nextButton.addEventListener("click", nextSlider);
 // =========================================================== QUOTES ==========================================================
 
 async function getQuotes() {
-  let quotes = "/json/quotes.json";
+  let quotes = "../json/quotes.json";
   let res = await fetch(quotes);
   let data = await res.json();
 
