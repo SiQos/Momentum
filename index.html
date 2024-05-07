@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/owfont-regular.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="assets/favicon/icons8-metascore-16.png" type="image/x-icon">
+  <title>Momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__audio audio">
+      <div class="audio__panel">
+        <div class="audio__player">
+          <button class="audio__prev audio__icon"></button>
+          <button class="audio__play audio__icon"></button>
+          <button class="audio__next audio__icon"></button>
+        </div>
+        <div class="audio__wrapper">
+          <input type="range" min="0" max="" value="0" class="audio__range">
+          <div class="audio__name"></div>
+          <div class="audio__currentTime"></div>
+          <div class="audio__durationTime"></div>
+          <div class="audio__volume-container">
+            <div class="audio__volume-icon"></div>
+            <div class="audio__volume-slider">
+              <div class="audio__percentage"></div>
+            </div>
+          </div>
+        </div>
+        <ul class="audio__track-list">
+        </ul>
+      </div>
+    </div>
+    <div class="header__weather weather">
+      <input type="text" class="weather__city">
+      <i class="weather__icon owf"></i>
+      <div class="weather__info">
+        <span class="weather__temp"></span>
+        <span class="weather__description"></span>
+      </div>
+      <div class="weather__wind"></div>
+      <div class="weather__humid"></div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="slider-arrows">
+      <div class="slider-arrow__prev"></div>
+      <div class="slider-arrow__next"></div>
+    </div>
+    <div class="time"></div>
+    <date class="date"></date>
+    <div class="greetings__container greetings">
+      <span class="greetings__text"></span>
+      <input class="name" type="text">
+    </div>
+  </main>
+
+  <footer class="footer">
+    <button class="footer__reset"></button>
+    <div class="footer__quotes quotes">
+      <div class="quotes__quote"></div>
+      <div class="quotes__author"></div>
+    </div>
+    <div class="footer__icon"></div>
+    <div class="footer__settings settings">
+      <div class="settings__wrapper">
+        <div class="settings__audio _container">
+          <input type="checkbox" class="block-audio" id="audio">
+          <label for="audio"></label>
+          <div class="settings__text">Audio</div>
+        </div>
+        <div class="settings__time _container">
+          <input type="checkbox" class="block-time" id="time">
+          <label for="time"></label>
+          <div class="settings__text">Time</div>
+        </div>
+        <div class="settings__weather _container">
+          <input type="checkbox" class="block-weather" id="weather">
+          <label for="weather"></label>
+          <div class="settings__text">Weather</div>
+        </div>
+        <div class="settings__greetings _container">
+          <input type="checkbox" class="block-greetings" id="greetings">
+          <label for="greetings"></label>
+          <div class="settings__text">Greetings</div>
+        </div>
+        <div class="settings__quote _container">
+          <input type="checkbox" class="block-quotes" id="quotes">
+          <label for="quotes"></label>
+          <div class="settings__text">Quote</div>
+        </div>
+        <div class="settings__date _container">
+          <input type="checkbox" class="block-date" id="date">
+          <label for="date"></label>
+          <div class="settings__text">Date</div>
+        </div>
+        <div class="settings__language">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/script.js"></script>
+</body>
+
+</html>
